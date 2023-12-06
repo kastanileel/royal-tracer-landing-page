@@ -1,18 +1,44 @@
 <script setup>
 import {  RouterView } from 'vue-router'
+import {onMounted, ref} from "vue";
+
+const imagePaths = [
+  'src/assets/showcase/example1.png',
+  'src/assets/showcase/malteAlternative.png',
+  'src/assets/showcase/background2.png',
+  // Add more image paths as needed
+];
+
+let currImageIndex = ref(0);
+
+onMounted(() => {
+  setInterval(() => {
+    currImageIndex.value = (currImageIndex.value + 1) % imagePaths.length;
+  }, 5000);
+});
+
 </script>
 
 <template>
   <header>
-    <div class="leftHeading">
-      <h3>ROYAL</h3>
-    </div>
-    <img alt="Vue logo" class="logo" src="@/assets/RoyalTracerLogoKrone.png" width="200" height="200" />
-    <div class="rightHeading">
-      <h3>TRACER</h3>
+
+    <img alt="Vue logo" class="logo" :src="imagePaths[currImageIndex]" />
+
+
+    <div class="content-overlay">
+      <div class="blurredField">
+        <h1 class="typewriter">ROYAL TRAYCER</h1>
+      </div>
     </div>
 
   </header>
+  <section>
+    <h1> The Project</h1>
+  </section>
+  <section>
+    <h1> The Team</h1>
+  </section>
+
 
 </template>
 <style scoped>
@@ -27,46 +53,70 @@ header {
 
 .logo {
   margin: 0 auto; /* Adjusted */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.leftHeading, .rightHeading {
-  flex: 1; /* New addition */
-  text-align: center; /* Adjusted */
-}
 
-h3 {
-  color: #2c3e50;
-  font-size: 40px;
+
+h1 {
+  color: #ffffff;
+  font-size: 60px;
   font-weight: bold;
+  font-family: "Consolas", monospace;
 }
 
-/*media query when >= 1024px*/
-@media screen and (min-width: 1024px) {
-  header {
-    width: 100%;
-    line-height: 1.5;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box; /* New addition */
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  text-align: center;
+  z-index: 1; /* Ensure this content is displayed above the background image */
+  font-family: "Fira Code Medium", monospace;
+}
+
+
+.blurredField {
+  backdrop-filter: blur(10px);
+  height: 110%;
+  width: 110%;
+}
+
+
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typewriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: typing 2s steps(40, end),
+  blink-caret 1s steps(1) infinite; /* Continuous blinking */
+
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
   }
-
-  .logo {
-    margin: 0 auto; /* Adjusted */
+  to {
+    width: 100%
   }
+}
 
-  .leftHeading, .rightHeading {
-    flex: 1; /* New addition */
-    text-align: center; /* Adjusted */
+/* The blinking cursor effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
   }
-
-  h3 {
-    color: #2c3e50;
-    font-size: 60px;
-    font-weight: bold;
+  50% {
+    border-color: orange;
   }
-
-
 }
 
 </style>
