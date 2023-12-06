@@ -2,6 +2,47 @@
 import {  RouterView } from 'vue-router'
 import {onMounted, ref} from "vue";
 
+const teamMembers = [
+  {
+    name: "Marcel Treptow",
+    role: "Product Owner",
+    github: "https://github.com/marceltreptow",
+    linkedin: "https://www.linkedin.com/in/marceltreptow",
+  },
+  {
+    name: "Johannes Möst",
+    role: "Scrum Master",
+    github: "https://github.com/mj0stjo",
+    linkedin: "https://www.linkedin.com/in/johannesmoest",
+  },
+  {
+    name: "Daniel Stempfle",
+    role: "Domain Expert",
+    github: "https://github.com/kastanileel"
+  },
+  {
+    name: "Niklas Paul",
+    role: "Chief Architect",
+    github: "https://github.com/KneeClass03",
+  },
+  {
+    name: "Florian Mayer",
+    role: "DevOps Engineer",
+    github: "https://github.com/superflo22",
+  },
+  {
+    name: "Timo Pfaff",
+    role: "Developer",
+    github: "https://github.com/t1mo1s",
+  },
+  {
+    name: "Malte Schmitz",
+    role: "Developer",
+    github: "https://github.com/ML200",
+  }
+  // Add more team members as needed
+];
+
 const imagePaths = [
   'src/assets/showcase/example1.png',
   'src/assets/showcase/malteAlternative.png',
@@ -20,25 +61,42 @@ onMounted(() => {
 </script>
 
 <template>
-  <header>
+  <div>
+    <header style="min-height: 100vh">
+      <img alt="Vue logo" class="logo" :src="imagePaths[currImageIndex]" />
 
-    <img alt="Vue logo" class="logo" :src="imagePaths[currImageIndex]" />
-
-
-    <div class="content-overlay">
-      <div class="blurredField">
-        <h1 class="typewriter">ROYAL TRAYCER</h1>
+      <div class="content-overlay">
+        <div class="blurredField">
+          <h1 class="typewriter">ROYAL TRACER</h1>
+        </div>
       </div>
-    </div>
+    </header>
+  </div>
+  <div class="content">
+    <section>
+      <h1>About the Project</h1>
+      <p>
+        Introducing the Royal Raytracer - a cutting-edge path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
+      </p>
+    </section>
 
-  </header>
-  <section>
-    <h1> The Project</h1>
-  </section>
-  <section>
-    <h1> The Team</h1>
-  </section>
-
+    <section>
+      <h1>About the Team</h1>
+      <!-- Render team members -->
+      <div class="team-members">
+        <div v-for="member in teamMembers" :key="member.name" class="team-member">
+           <h2>{{ member.name }}</h2>
+          <p>{{ member.role }}</p>
+          <div class="social-links">
+            <!-- Add links to GitHub and LinkedIn profiles -->
+            <a :href="member.github" target="_blank">GitHub</a>
+            <a :href="member.linkedin" target="_blank">LinkedIn</a>
+            <!-- Add more social links as needed -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
 </template>
 <style scoped>
@@ -61,13 +119,30 @@ header {
   left: 0;
 }
 
+.content {
+  padding: 16px;
+  background-color: #ffffff; /* Add a subtle background color */
+  text-align: center; /* Center-align the content */
+}
 
+section {
+  padding: 20px;
+  background-color: #333; /* Add a subtle background color */
+  text-align: center; /* Center-align the content */
+}
 
 h1 {
-  color: #ffffff;
+  color: #ffffff; /* Adjust the font color for better readability */
   font-size: 60px;
   font-weight: bold;
   font-family: "Consolas", monospace;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #ffffff; /* Adjust the font color for better readability */
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .content-overlay {
@@ -117,6 +192,44 @@ h1 {
   50% {
     border-color: orange;
   }
+}
+
+h2 {
+  color: white;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  margin: 20px;
+  text-align: center;
+}
+
+.team-member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.social-links {
+  margin-top: 10px;
+
+}
+
+.social-links a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.social-links a:hover {
+  color: #92bdea;
 }
 
 </style>
