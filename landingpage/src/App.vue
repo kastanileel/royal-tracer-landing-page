@@ -81,6 +81,10 @@ onMounted(() => {
     </section>
 
     <section>
+      <button href="https://editor.royaltracer.com">Try it out!</button>
+    </section>
+
+    <section>
       <h1>About the Team</h1>
       <!-- Render team members -->
       <div class="team-members">
@@ -139,9 +143,11 @@ h1 {
   margin-bottom: 10px;
 }
 
+
 p {
   color: #ffffff; /* Adjust the font color for better readability */
   font-size: 18px;
+  font-family: "Consolas";
   margin-bottom: 20px;
 }
 
@@ -196,6 +202,7 @@ p {
 
 h2 {
   color: white;
+  font-family: "Consolas", monospace;
 }
 
 .team-members {
@@ -225,7 +232,8 @@ h2 {
 .social-links a {
   margin-right: 10px;
   text-decoration: none;
-  color: #007bff;
+  color: #898989;
+  font-family: "Consolas", monospace;
 }
 
 .social-links a:hover {
