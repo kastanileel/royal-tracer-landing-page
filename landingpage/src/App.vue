@@ -58,6 +58,10 @@ onMounted(() => {
   }, 5000);
 });
 
+const redirectToEditor = () => {
+  window.location.href = 'https://editor.royaltracer.com';
+};
+
 </script>
 
 <template>
@@ -81,7 +85,7 @@ onMounted(() => {
     </section>
 
     <section>
-      <button href="https://editor.royaltracer.com">Try it out!</button>
+      <button @click="redirectToEditor">Try it out!</button>
     </section>
 
     <section>
@@ -150,6 +154,25 @@ p {
   font-family: "Consolas";
   margin-bottom: 20px;
 }
+
+button {
+  background-color: #92bdea; /* Lighter color on hover for interactivity */
+    color: #333; /* Dark text on hover for contrast */
+    border: none; /* No border for a modern look */
+    padding: 10px 20px; /* Adequate padding for comfortable clicking */
+    font-family: "Consolas", monospace; /* Consistent font family */
+    font-size: 22px; /* Visible and legible font size */
+    cursor: pointer; /* Cursor indication for clickability */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    border-radius: 5px; /* Slightly rounded corners for a softer look */
+    margin-top: 20px; /* Space above the button */
+  }
+
+  button:hover {
+    background-color: #c1c1c1; /* Dark background for consistency */
+    color: white; /* Light text for contrast */
+  }
+
 
 .content-overlay {
   position: absolute;
