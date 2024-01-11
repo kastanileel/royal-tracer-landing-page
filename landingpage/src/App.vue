@@ -80,7 +80,7 @@ const redirectToEditor = () => {
     <section>
       <h1>About the Project</h1>
       <p>
-        Introducing the Royal Raytracer - a cutting-edge path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
+        Introducing the Royal Tracer - a path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
       </p>
     </section>
 
