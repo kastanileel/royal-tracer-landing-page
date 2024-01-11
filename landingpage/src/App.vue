@@ -68,7 +68,7 @@ const redirectToEditor = () => {
   <div>
     <header style="min-height: 100vh">
       <img alt="Vue logo" class="logo" :src="imagePaths[currImageIndex]" />
-
+      
       <div class="content-overlay">
         <div class="blurredField">
           <h1 class="typewriter">ROYAL TRACER</h1>
