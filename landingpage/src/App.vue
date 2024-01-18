@@ -58,13 +58,17 @@ onMounted(() => {
   }, 5000);
 });
 
+const redirectToEditor = () => {
+  window.location.href = 'https://editor.royaltracer.com';
+};
+
 </script>
 
 <template>
   <div>
     <header style="min-height: 100vh">
       <img alt="Vue logo" class="logo" :src="imagePaths[currImageIndex]" />
-
+      
       <div class="content-overlay">
         <div class="blurredField">
           <h1 class="typewriter">ROYAL TRACER</h1>
@@ -76,8 +80,12 @@ onMounted(() => {
     <section>
       <h1>About the Project</h1>
       <p>
-        Introducing the Royal Raytracer - a cutting-edge path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
+        Introducing the Royal Tracer - a path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
       </p>
+    </section>
+
+    <section>
+      <button @click="redirectToEditor">Try it out!</button>
     </section>
 
     <section>
@@ -139,11 +147,32 @@ h1 {
   margin-bottom: 10px;
 }
 
+
 p {
   color: #ffffff; /* Adjust the font color for better readability */
   font-size: 18px;
+  font-family: "Consolas";
   margin-bottom: 20px;
 }
+
+button {
+  background-color: #92bdea; /* Lighter color on hover for interactivity */
+    color: #333; /* Dark text on hover for contrast */
+    border: none; /* No border for a modern look */
+    padding: 10px 20px; /* Adequate padding for comfortable clicking */
+    font-family: "Consolas", monospace; /* Consistent font family */
+    font-size: 22px; /* Visible and legible font size */
+    cursor: pointer; /* Cursor indication for clickability */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    border-radius: 5px; /* Slightly rounded corners for a softer look */
+    margin-top: 20px; /* Space above the button */
+  }
+
+  button:hover {
+    background-color: #c1c1c1; /* Dark background for consistency */
+    color: white; /* Light text for contrast */
+  }
+
 
 .content-overlay {
   position: absolute;
@@ -196,6 +225,7 @@ p {
 
 h2 {
   color: white;
+  font-family: "Consolas", monospace;
 }
 
 .team-members {
@@ -225,7 +255,8 @@ h2 {
 .social-links a {
   margin-right: 10px;
   text-decoration: none;
-  color: #007bff;
+  color: #898989;
+  font-family: "Consolas", monospace;
 }
 
 .social-links a:hover {
