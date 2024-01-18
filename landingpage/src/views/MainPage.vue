@@ -1,5 +1,6 @@
 <script setup>
 import {  RouterView } from 'vue-router'
+import router from "@/router";
 import {onMounted, ref} from "vue";
 
 const teamMembers = [
@@ -44,9 +45,9 @@ const teamMembers = [
 ];
 
 const imagePaths = [
-  'src/assets/showcase/example1.png',
-  'src/assets/showcase/malteAlternative.png',
-  'src/assets/showcase/background2.png',
+  '/assets/showcase/example1.png',
+  '/assets/showcase/malteAlternative.png',
+  '/assets/showcase/background2.png',
   // Add more image paths as needed
 ];
 
