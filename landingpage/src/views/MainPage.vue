@@ -322,4 +322,56 @@ h2 {
   color: #92bdea;
 }
 
+/* Global Styles */
+body {
+  font-family: "Consolas", monospace; /* Consistent font family */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .about, .team {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutText, .aboutImage, .thu {
+    max-width: 90%;
+    margin: 10px auto;
+  }
+
+  .team-member {
+    width: 50%; /* Adjust the width on smaller screens */
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .tryBtn {
+    width: 150px;
+    font-size: 18px;
+  }
+}
+
+/* Improved Button Styles for Mobile */
+button {
+  padding: 12px 24px; /* Larger padding for easier interaction on mobile */
+  font-size: 18px; /* Larger font size for readability */
+}
+
+
+/* Team Member Layout for Mobile */
+.team-member {
+  margin: 10px;
+}
+
+/* Social Links Adjustments */
+.social-links a {
+  font-size: 16px; /* Larger font size for easier interaction */
+}
+
 </style>
