@@ -8,13 +8,11 @@ const teamMembers = [
     name: "Marcel Treptow",
     role: "Product Owner",
     github: "https://github.com/marceltreptow",
-    linkedin: "https://www.linkedin.com/in/marceltreptow",
   },
   {
     name: "Johannes Möst",
     role: "Scrum Master",
     github: "https://github.com/mj0stjo",
-    linkedin: "https://www.linkedin.com/in/johannesmoest",
   },
   {
     name: "Daniel Stempfle",
@@ -45,9 +43,9 @@ const teamMembers = [
 ];
 
 const imagePaths = [
-  '/assets/showcase/example1.png',
-  '/assets/showcase/malteAlternative.png',
-  '/assets/showcase/background2.png',
+  '/src/assets/showcase/example1.png',
+  '/src/assets/showcase/malteAlternative.png',
+  '/src/assets/showcase/background2.png',
   // Add more image paths as needed
 ];
 
@@ -78,29 +76,52 @@ const redirectToEditor = () => {
     </header>
   </div>
   <div class="content">
-    <section>
-      <h1>About the Project</h1>
-      <p>
-        Introducing the Royal Tracer - a path tracing software project that aims to redefine realism in the world of computer graphics. Our foundation is a modular architecture that supports ambient, diffuse, and specular lighting, reflections, and refractions. With a strong focus on path tracing, UV mapping, efficient GPU calculations, animation, and a spectral light model, we're dedicated to pushing the boundaries of what's possible in rendering technology. Our user-friendly editor allows you to effortlessly configure scenes, add and manage 3D objects, and instantly see changes in the preview. Join us on this journey as we bring your creative visions to life with unmatched realism and animation capabilities.
-      </p>
+    <section class="about">
+      <div>
+        <h1>About the Project</h1>
+        <p>
+          Royal Tracer "Alexandria" is an advanced tool designed to integrate seamlessly into various workflows, offering both innovation and practicality. Our product stands out for its use of C++ for high efficiency and optimized performance, ensuring it can handle intensive tasks with ease.
+          <br>
+          <br>
+          At its core, Royal Tracer utilizes ray tracing, a technique demanding significant computational resources. We've engineered our tool to be compatible with both GPU and CPU rendering, thanks to OpenCL. This approach makes Royal Tracer accessible to a wide range of users, regardless of their hardware setup.
+          <br>
+          <br>
+          The architecture of Royal Tracer is notably modular, allowing for interchangeability of key components like the editor, ray tracer, and storage management. This design not only facilitates easy maintenance and upgrades but also lets users customize the tool with their own modules or features.
+          <br>
+          <br>
+          Transitioning to a web-based editor has significantly enhanced the accessibility and convenience of Royal Tracer. Users can now access our editor from any location, bypassing the need for complex installations, while maintaining a seamless integration of features.
+          <br>
+          <br>
+          A standout feature of Royal Tracer is the implementation of path tracing within our ray tracing system. This technique greatly improves the realism of rendered images, accurately simulating complex lighting and shading scenarios.
+          <br>
+          <br>
+          In summary, Royal Tracer offers a blend of high performance, broad accessibility, modular flexibility, and enhanced realism in rendering. It's a robust, user-friendly tool, designed to adapt and evolve with the needs of its users.
+        </p>
+        <button @click="redirectToEditor">Try it out!</button>
+      </div>
+      <div class="aboutImage">
+        <img src="/src/assets/audi.png" alt="Audi Render" id="audi">
+      </div>
     </section>
+  </div>
+  <div class="content">
+    <section class="team">
+      <div class="thu">
+        <img src="/src/assets/THU.svg" alt="THU Logo">
+      </div>
 
-    <section>
-      <button @click="redirectToEditor">Try it out!</button>
-    </section>
-
-    <section>
-      <h1>About the Team</h1>
-      <!-- Render team members -->
-      <div class="team-members">
-        <div v-for="member in teamMembers" :key="member.name" class="team-member">
-           <h2>{{ member.name }}</h2>
-          <p>{{ member.role }}</p>
-          <div class="social-links">
-            <!-- Add links to GitHub and LinkedIn profiles -->
-            <a :href="member.github" target="_blank">GitHub</a>
-            <a :href="member.linkedin" target="_blank">LinkedIn</a>
-            <!-- Add more social links as needed -->
+      <div>
+        <h1>About the Team</h1>
+        <!-- Render team members -->
+        <div class="team-members">
+          <div v-for="member in teamMembers" :key="member.name" class="team-member">
+             <h2>{{ member.name }}</h2>
+            <p>{{ member.role }}</p>
+            <div class="social-links">
+              <!-- Add links to GitHub and LinkedIn profiles -->
+              <a :href="member.github" target="_blank">GitHub</a>
+              <!-- Add more social links as needed -->
+            </div>
           </div>
         </div>
       </div>
@@ -131,13 +152,39 @@ header {
 .content {
   padding: 16px;
   background-color: #ffffff; /* Add a subtle background color */
-  text-align: center; /* Center-align the content */
+}
+
+.about{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.aboutImage{
+  display: grid;
+  align-items: center;
+}
+
+#audi{
+  width: 100%;  /* or any other percentage */
+  height: auto; /* to maintain the aspect ratio */
+}
+
+.team{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.thu{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
 }
 
 section {
   padding: 20px;
   background-color: #333; /* Add a subtle background color */
-  text-align: center; /* Center-align the content */
 }
 
 h1 {
