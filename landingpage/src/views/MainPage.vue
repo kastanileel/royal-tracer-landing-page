@@ -72,12 +72,13 @@ const redirectToEditor = () => {
         <div class="blurredField">
           <h1 class="typewriter">ROYAL TRACER</h1>
         </div>
+        <button @click="redirectToEditor" class="tryBtn">Try here!</button>
       </div>
     </header>
   </div>
   <div class="content">
     <section class="about">
-      <div>
+      <div class="aboutText">
         <h1>About the Project</h1>
         <p>
           Royal Tracer "Alexandria" is an advanced tool designed to integrate seamlessly into various workflows, offering both innovation and practicality. Our product stands out for its use of C++ for high efficiency and optimized performance, ensuring it can handle intensive tasks with ease.
@@ -97,7 +98,6 @@ const redirectToEditor = () => {
           <br>
           In summary, Royal Tracer offers a blend of high performance, broad accessibility, modular flexibility, and enhanced realism in rendering. It's a robust, user-friendly tool, designed to adapt and evolve with the needs of its users.
         </p>
-        <button @click="redirectToEditor">Try it out!</button>
       </div>
       <div class="aboutImage">
         <img src="/src/assets/audi.png" alt="Audi Render" id="audi">
@@ -160,9 +160,14 @@ header {
   text-align: left;
 }
 
+.aboutText{
+  max-width: 50%;
+}
+
 .aboutImage{
   display: grid;
   align-items: center;
+  margin-left: 20px;
 }
 
 #audi{
@@ -221,6 +226,12 @@ button {
     color: white; /* Light text for contrast */
   }
 
+  .tryBtn{
+    height: 50px;
+    width: 200px;
+    font-weight: bold;
+  }
+
 
 .content-overlay {
   position: absolute;
@@ -242,7 +253,7 @@ button {
 
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typewriter cursor */
+  border-right: .15em solid #92bdea; /* The typewriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
@@ -267,7 +278,7 @@ button {
     border-color: transparent;
   }
   50% {
-    border-color: orange;
+    border-color: #92bdea;
   }
 }
 
