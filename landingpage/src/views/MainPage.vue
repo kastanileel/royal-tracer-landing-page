@@ -46,7 +46,8 @@ const imagePaths = [
   '/src/assets/showcase/example1.png',
   '/src/assets/showcase/malteAlternative.png',
   '/src/assets/showcase/background2.png',
-  // Add more image paths as needed
+  '/src/assets/showcase/render.png',
+  '/src/assets/showcase/buuney.png',
 ];
 
 let currImageIndex = ref(0);
